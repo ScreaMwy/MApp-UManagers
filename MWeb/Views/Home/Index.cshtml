@@ -1,0 +1,23 @@
+﻿@using MWeb.Untiy; 
+@using System 
+@model String
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@Html.ActionLink("HomeLinkTest", "Privacy", "Home")
+@Html.Br()
+@Html.Img(@"");
+
+<h2>@Model</h2>
+
+@section Scripts
+{ 
+    <script type="text/javascript">
+        $(document).ready(function ()
+        {
+            console.log("页面加载完成");
+            alert(new Date().getTime());
+        })
+    </script>
+}
