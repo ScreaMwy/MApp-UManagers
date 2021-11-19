@@ -1,4 +1,6 @@
-﻿namespace WinForm
+﻿using System.Windows.Forms;
+
+namespace WinForm
 {
     public partial class MainForm
     {
@@ -28,10 +30,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("用户管理");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("基数管理");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("系数管理");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("人员绩效");
+            treeNode1 = new TreeNode("用户管理");
+            treeNode2 = new TreeNode("基数管理");
+            treeNode3 = new TreeNode("系数管理");
+            treeNode4 = new TreeNode("人员绩效");
             this.scMainForm = new System.Windows.Forms.SplitContainer();
             this.tvMenu = new System.Windows.Forms.TreeView();
             ((System.ComponentModel.ISupportInitialize)(this.scMainForm)).BeginInit();
@@ -81,6 +83,7 @@
             this.tvMenu.Size = new System.Drawing.Size(242, 591);
             this.tvMenu.TabIndex = 0;
             this.tvMenu.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvMenu_AfterSelect);
+            this.tvMenu.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvMenu_NodeMouseClick);
             // 
             // MainForm
             // 
@@ -101,8 +104,12 @@
 
         #endregion
 
-        private System.Windows.Forms.SplitContainer scMainForm;
-        private System.Windows.Forms.TreeView tvMenu;
+        private SplitContainer scMainForm;
+        private TreeView tvMenu;
+        private TreeNode treeNode1;
+        private TreeNode treeNode2;
+        private TreeNode treeNode3;
+        private TreeNode treeNode4;
     }
 }
 

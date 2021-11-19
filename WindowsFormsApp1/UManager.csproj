@@ -141,11 +141,35 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseManagerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseManagerForm.Designer.cs">
+      <DependentUpon>BaseManagerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CoefficientManagerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CoefficientManagerForm.Designer.cs">
+      <DependentUpon>CoefficientManagerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ErrorMsgForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ErrorMsgForm.Designer.cs">
       <DependentUpon>ErrorMsgForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainLogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainLogForm.Designer.cs">
+      <DependentUpon>MainLogForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserAppraisalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserAppraisalForm.Designer.cs">
+      <DependentUpon>UserAppraisalForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UserEditionForm.cs">
       <SubType>Form</SubType>
@@ -167,8 +191,14 @@
     <Compile Include="UserManagerForm.Designer.cs">
       <DependentUpon>UserManagerForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BaseManagerForm.resx">
+      <DependentUpon>BaseManagerForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ErrorMsgForm.resx">
       <DependentUpon>ErrorMsgForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainLogForm.resx">
+      <DependentUpon>MainLogForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserEditionForm.resx">
       <DependentUpon>UserEditionForm.cs</DependentUpon>

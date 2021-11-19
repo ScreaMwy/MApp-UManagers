@@ -151,8 +151,6 @@ namespace WinForm
             MessageBox.Show("Double Click");
         }
 
-
-
         private BindDgvDelegate _bindDgvDelegate;
     }
 }

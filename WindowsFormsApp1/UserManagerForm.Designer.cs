@@ -55,6 +55,9 @@ namespace WinForm
             ((System.ComponentModel.ISupportInitialize)(this.dgvUserAppraisalBase)).BeginInit();
             this.cmsUserManager.SuspendLayout();
             this.SuspendLayout();
+
+
+
             // 
             // gbShaiXuan
             // 
@@ -279,6 +282,7 @@ namespace WinForm
             ((System.ComponentModel.ISupportInitialize)(this.dgvUserAppraisalBase)).EndInit();
             this.cmsUserManager.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.WindowState = FormWindowState.Maximized;
 
         }
 
