@@ -19,7 +19,12 @@ namespace WinForm
 
         private void BaseManagerForm_Load(object sender, EventArgs e)
         {
+            
+        }
 
+        private void tmrBase_Tick(object sender, EventArgs e)
+        {
+            this.lblBaseTimer.Text += DateTime.Now.ToString($"yyyy年MM月dd日 hh:mm:ss");
         }
     }
 }

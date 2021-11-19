@@ -99,7 +99,7 @@ namespace WinForm
             ((System.ComponentModel.ISupportInitialize)(this.scMainForm)).EndInit();
             this.scMainForm.ResumeLayout(false);
             this.ResumeLayout(false);
-
+            this.MaximizeBox = false;
         }
 
         #endregion
