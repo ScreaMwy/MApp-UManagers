@@ -51,66 +51,12 @@ namespace WinForm
 
         private void tvMenu_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            switch (e.Node.Index)
-            {
-                case 0:
-                    if (_userManagerForm == null)
-                    {
-                        _userManagerForm = new UserManagerForm();
-                        _userManagerForm.MdiParent = this;
-                        _userManagerForm.Parent = scMainForm.Panel2;
-                    }
-                    _baseManagerForm?.Hide();
-                    _coefficientManagerForm?.Hide();
-                    _userAppraisalForm?.Hide();
-                    _userManagerForm?.Show();
-                    break;
-                case 1:
-                    if (_baseManagerForm == null)
-                    {
-                        _baseManagerForm = new BaseManagerForm();
-                        _baseManagerForm.MdiParent = this;
-                        _baseManagerForm.Parent = scMainForm.Panel2;
-                    }
-                    _userManagerForm?.Hide();
-                    _coefficientManagerForm?.Hide();
-                    _userAppraisalForm?.Hide();
-                    _baseManagerForm?.Show();
-                    break;
-                case 2:
-                    if (_coefficientManagerForm == null)
-                    {
-                        _coefficientManagerForm = new CoefficientManagerForm();
-                        _coefficientManagerForm.MdiParent = this;
-                        _coefficientManagerForm.Parent = scMainForm.Panel2;
-                    }
-                    _userManagerForm?.Hide();
-                    _coefficientManagerForm?.Hide();
-                    _userAppraisalForm?.Hide();
-                    _coefficientManagerForm?.Show();
-                    break;
-                case 3:
-                    if (_userAppraisalForm == null)
-                    {
-                        _userAppraisalForm = new UserAppraisalForm();
-                        _userAppraisalForm.MdiParent = this;
-                        _userAppraisalForm.Parent = scMainForm.Panel2;
-                    }
-                    _userManagerForm?.Hide();
-                    _baseManagerForm?.Hide();
-                    _coefficientManagerForm?.Hide();
-                    _userAppraisalForm?.Show();
-                    break;
-                default:
-                    MessageBox.Show($"{new Exception("不存在相应的节点！").Message}");
-                    break;
-            }
+            Form form = FormFactory.CreateFactory(e.Node.Index);
+            form.MdiParent = this;
+            form.Parent = scMainForm.Panel2;
+            form.Show();
         }
-
-        private UserManagerForm _userManagerForm;
-        private BaseManagerForm _baseManagerForm;
-        private CoefficientManagerForm _coefficientManagerForm;
-        private UserAppraisalForm _userAppraisalForm;
+        
         private MainLogForm _mainLogForm;
     }
 }

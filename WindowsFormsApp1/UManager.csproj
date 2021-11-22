@@ -159,6 +159,7 @@
     <Compile Include="ErrorMsgForm.Designer.cs">
       <DependentUpon>ErrorMsgForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormFactory.cs" />
     <Compile Include="MainLogForm.cs">
       <SubType>Form</SubType>
     </Compile>
