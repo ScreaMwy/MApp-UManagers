@@ -64,9 +64,6 @@
         }
 
         private System.Windows.Forms.DataGridView dgvBaseData;
-
-        private System.Windows.Forms.DataGridView dataGridView1;
-
         #endregion
 
         private System.Windows.Forms.Timer tmrBase;
