@@ -26,13 +26,13 @@ namespace WinForm
             
         }
 
-        private void EditionUserForm_Load(object sender, EventArgs e)
+        private void UserEditionForm_Load(object sender, EventArgs e)
         {
             BindCbxShengFen();
             // 显示已选人员的原始信息
             if (_user != null)
             {
-                this.txtUserName.Enabled = false;
+                txtUserName.Enabled = false;
                 cbxSFEdition.SelectedValue = _user?.BaseTypeId;
                 cbxGender.Text = _user?.Sex.ToString();
                 txtUserName.Text = _user?.Name;

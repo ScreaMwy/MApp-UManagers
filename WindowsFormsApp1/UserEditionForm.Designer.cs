@@ -191,7 +191,7 @@ namespace WinForm
             this.Controls.Add(this.gbxUserInfo);
             this.Name = "UserEditionForm";
             this.Text = "用户编辑";
-            this.Load += new System.EventHandler(this.EditionUserForm_Load);
+            this.Load += new System.EventHandler(this.UserEditionForm_Load);
             this.gbxUserInfo.ResumeLayout(false);
             this.gbxUserInfo.PerformLayout();
             this.gbxEdition.ResumeLayout(false);

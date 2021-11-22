@@ -25,15 +25,6 @@ namespace WinForm
             _mainLogForm.Show();
         }
 
-        private void UserManagerForm_LoadAndOpen()
-        {
-            
-            _userManagerForm = new UserManagerForm();
-            _userManagerForm.MdiParent = this;
-            _userManagerForm.Parent = scMainForm.Panel2;
-            _userManagerForm.Show();
-        }
-
         private void tvMenu_AfterSelect(object sender, TreeViewEventArgs e)
         {
             NodeReset();
@@ -60,102 +51,55 @@ namespace WinForm
 
         private void tvMenu_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            switch (e.Node.Name)
+            switch (e.Node.Index)
             {
-                case "tnUserManager":
-                    // MessageBox.Show("tnUserManager");
-                    // FormReset();
-                    if (_mainLogForm != null)
+                case 0:
+                    if (_userManagerForm == null)
                     {
-                        _mainLogForm.Close();
+                        _userManagerForm = new UserManagerForm();
+                        _userManagerForm.MdiParent = this;
+                        _userManagerForm.Parent = scMainForm.Panel2;
                     }
-                    if (_baseManagerForm != null)
-                    {
-                        _baseManagerForm.Close();
-                    }
-                    if (
-                        _coefficientManagerForm != null)
-                    {
-                        _coefficientManagerForm.Close();
-                    }
-                    if (_userAppraisalForm != null)
-                    {
-                        _userAppraisalForm.Close();
-                    }
-
-                    UserManagerForm_LoadAndOpen();
+                    _baseManagerForm?.Hide();
+                    _coefficientManagerForm?.Hide();
+                    _userAppraisalForm?.Hide();
+                    _userManagerForm?.Show();
                     break;
-                case "tnBaseManager":
-                    // MessageBox.Show("tnBaseManager");
-                    // FormReset();
-                    if (_mainLogForm != null)
+                case 1:
+                    if (_baseManagerForm == null)
                     {
-                        _mainLogForm.Close();
+                        _baseManagerForm = new BaseManagerForm();
+                        _baseManagerForm.MdiParent = this;
+                        _baseManagerForm.Parent = scMainForm.Panel2;
                     }
-                    if (_userManagerForm != null)
-                    {
-                        _userManagerForm.Close();
-                    }
-                    if (
-                        _coefficientManagerForm != null)
-                    {
-                        _coefficientManagerForm.Close();
-                    }
-                    if (_userAppraisalForm != null)
-                    {
-                        _userAppraisalForm.Close();
-                    }
-
-                    _baseManagerForm = new BaseManagerForm();
-                    _baseManagerForm.MdiParent = this;
-                    _baseManagerForm.Parent = scMainForm.Panel2;
-                    _baseManagerForm.Show();
-
-                    /*
-                    if (_userManagerForm != null ||
-                        _coefficientManagerForm != null ||
-                        _userAppraisalForm != null)
-                    {
-                        _userManagerForm.Close();
-                        _coefficientManagerForm.Close();
-                        _userAppraisalForm.Close();
-                    }*/
-
-                    
+                    _userManagerForm?.Hide();
+                    _coefficientManagerForm?.Hide();
+                    _userAppraisalForm?.Hide();
+                    _baseManagerForm?.Show();
                     break;
-                case "tnCoefficientManager":
-                    // MessageBox.Show("tnCoefficientManager");
-                    // FormReset();
-                    /*if (_userManagerForm != null ||
-                        _baseManagerForm != null ||
-                        _userAppraisalForm != null)
+                case 2:
+                    if (_coefficientManagerForm == null)
                     {
-                        _userManagerForm.Close();
-                        _baseManagerForm.Close();
-                        _userAppraisalForm.Close();
-                    }*/
-
-                    _coefficientManagerForm = new CoefficientManagerForm();
-                    _coefficientManagerForm.MdiParent = this;
-                    _coefficientManagerForm.Parent = scMainForm.Parent;
-                    _coefficientManagerForm.Show();
+                        _coefficientManagerForm = new CoefficientManagerForm();
+                        _coefficientManagerForm.MdiParent = this;
+                        _coefficientManagerForm.Parent = scMainForm.Panel2;
+                    }
+                    _userManagerForm?.Hide();
+                    _coefficientManagerForm?.Hide();
+                    _userAppraisalForm?.Hide();
+                    _coefficientManagerForm?.Show();
                     break;
-                case "tnUserAppraisal":
-                    // MessageBox.Show("tnUserAppraisal");
-                    // FormReset();
-                    /*if (_userManagerForm != null ||
-                        _baseManagerForm != null ||
-                        _userAppraisalForm != null)
+                case 3:
+                    if (_userAppraisalForm == null)
                     {
-                        _userManagerForm.Close();
-                        _baseManagerForm.Close();
-                        _coefficientManagerForm.Close();
-                    }*/
-
-                    _userAppraisalForm = new UserAppraisalForm();
-                    _userAppraisalForm.MdiParent = this;
-                    _userAppraisalForm.Parent = scMainForm.Panel2;
-                    _userAppraisalForm.Show();
+                        _userAppraisalForm = new UserAppraisalForm();
+                        _userAppraisalForm.MdiParent = this;
+                        _userAppraisalForm.Parent = scMainForm.Panel2;
+                    }
+                    _userManagerForm?.Hide();
+                    _baseManagerForm?.Hide();
+                    _coefficientManagerForm?.Hide();
+                    _userAppraisalForm?.Show();
                     break;
                 default:
                     MessageBox.Show($"{new Exception("不存在相应的节点！").Message}");
