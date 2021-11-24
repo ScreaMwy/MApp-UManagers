@@ -11,7 +11,7 @@ using WinForm.Model;
 
 namespace WinForm
 {
-    public partial class BaseManagerForm : Form
+    internal partial class BaseManagerForm : Form
     {
         public BaseManagerForm()
         {
@@ -22,7 +22,32 @@ namespace WinForm
         {
             dgvBaseData.DataSource = AppraisalBases.ListAll();
         }
-        
+
+        private void dgvBaseData_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                if (e.RowIndex > -1)
+                {
+                    dgvBaseData.Rows[e.RowIndex].Selected = true;
+                    MessageBox.Show($"Right Cell Click Successed");
+                }    
+            }
+        }
+
+        private void dgvBaseData_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+            }
+        }
+
+        private void dgvBaseData_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            MessageBox.Show($"DoubleClick Successed");
+            
+        }
+
         // private void BaseManagerForm_Load(object sender, EventArgs e)
         // {
         //     tmrBase.Start();

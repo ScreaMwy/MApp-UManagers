@@ -8,11 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinForm.Model;
+using WinForm.Model.Attributes;
 using WinForm.Utility;
 
 namespace WinForm
 {
-    public partial class UserEditionForm : Form
+    internal partial class UserEditionForm : Form
     {
         public UserEditionForm(BindDgvDelegate bindDgvDelegate)
         {
@@ -47,7 +48,7 @@ namespace WinForm
             appraisalBases.Insert(0, new AppraisalBases()
             {
                 Id = 0,
-                BaseType = "-- 请选择相应的身份 --",
+                BaseType = string.Empty,
                 AppraisalBase = 0
             });
             cbxSFEdition.DataSource = appraisalBases;
@@ -72,7 +73,7 @@ namespace WinForm
             {
                 gender = Gender.男;
             }
-            else
+            else if (sex == "女")
             {
                 gender = Gender.女;
             }
@@ -86,20 +87,31 @@ namespace WinForm
                 IsDel = (NonJob)Convert.ToInt32(isDel)
             };
 
-            if (_user == null)
+            List<string> infos = user.InputRequiredValidation<Users>();
+            if (infos.Count > 0)
             {
-                Users.Insert(user);
-                MessageBox.Show($"用户[{user.Name}]的信息已添加成功！");
+                foreach (string info in infos)
+                {
+                    MessageBox.Show(info);
+                }
             }
             else
             {
-                user.Id = _user.Id;
-                Users.Update(user);
-                MessageBox.Show($"用户[{_user.Name}]的信息已修改成功！");
-            }
+                if (_user == null)
+                {
+                    Users.Insert(user);
+                    MessageBox.Show($"用户[{user.Name}]的信息已添加成功！");
+                }
+                else
+                {
+                    user.Id = _user.Id;
+                    Users.Update(user);
+                    MessageBox.Show($"用户[{_user.Name}]的信息已修改成功！");
+                }
 
-            _bindDgvDelegate.Invoke();
-            this.Close();
+                _bindDgvDelegate.Invoke();
+                this.Close();
+            }
         }
 
         /*private void btnErrMsg_Click(object sender, EventArgs e)

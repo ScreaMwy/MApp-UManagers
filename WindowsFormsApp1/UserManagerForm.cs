@@ -12,7 +12,7 @@ using WinForm.Utility;
 
 namespace WinForm
 {
-    public partial class UserManagerForm : Form
+    internal partial class UserManagerForm : Form
     {
         public UserManagerForm()
         {
@@ -28,7 +28,6 @@ namespace WinForm
         {
             BindCbx();
             BindDgv();
-            _bindDgvDelegate = new BindDgvDelegate(BindDgv);
         }
 
         // 筛选中的按需查询
@@ -124,9 +123,8 @@ namespace WinForm
 
         private void tsmNewItem_Click(object sender, EventArgs e)
         {
-            UserEditionForm userEditionForm = new UserEditionForm(_bindDgvDelegate);
+            UserEditionForm userEditionForm = new UserEditionForm(BindDgv);
             userEditionForm.ShowDialog();
-            BindDgv();
         }
 
         private void tsmStart_Click(object sender, EventArgs e)
@@ -137,7 +135,7 @@ namespace WinForm
         private void tsmEdit_Click(object sender, EventArgs e)
         {
             int id = (int)dgvUserAppraisalBase.SelectedRows[0].Cells["Id"].Value;
-            UserEditionForm userEditionForm = new UserEditionForm(_bindDgvDelegate, id);
+            UserEditionForm userEditionForm = new UserEditionForm(BindDgv, id);
             userEditionForm.ShowDialog();
         }
 
@@ -150,7 +148,5 @@ namespace WinForm
         {
             MessageBox.Show("Double Click");
         }
-
-        private BindDgvDelegate _bindDgvDelegate;
     }
 }
