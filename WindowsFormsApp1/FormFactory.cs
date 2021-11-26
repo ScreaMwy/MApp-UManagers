@@ -54,6 +54,7 @@ namespace WinForm
             return _form;
         }
 
+        // Òş²ØËùÓĞ´°Ìå
         public static void HideFromAll()
         {
             /*_userManagerForm?.Hide();
