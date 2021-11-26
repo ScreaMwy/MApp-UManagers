@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.gbxBaseEdition = new System.Windows.Forms.GroupBox();
+            this.txtBase = new System.Windows.Forms.TextBox();
             this.lblBase = new System.Windows.Forms.Label();
             this.btnQuit = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.txtBase = new System.Windows.Forms.TextBox();
             this.gbxBaseEdition.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,6 +48,15 @@
             this.gbxBaseEdition.TabIndex = 0;
             this.gbxBaseEdition.TabStop = false;
             this.gbxBaseEdition.Text = "基数修改";
+            // 
+            // txtBase
+            // 
+            this.txtBase.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtBase.Location = new System.Drawing.Point(106, 38);
+            this.txtBase.Name = "txtBase";
+            this.txtBase.Size = new System.Drawing.Size(125, 23);
+            this.txtBase.TabIndex = 1;
+            this.txtBase.KeyDown += new System.Windows.Forms.KeyEventHandler(txtBase_KeyDown);
             // 
             // lblBase
             // 
@@ -68,6 +77,7 @@
             this.btnQuit.TabIndex = 1;
             this.btnQuit.Text = "退出";
             this.btnQuit.UseVisualStyleBackColor = true;
+            this.btnQuit.Click += new System.EventHandler(this.btnQuit_Click);
             // 
             // btnSave
             // 
@@ -78,26 +88,20 @@
             this.btnSave.TabIndex = 2;
             this.btnSave.Text = "保存";
             this.btnSave.UseVisualStyleBackColor = true;
-            // 
-            // txtBase
-            // 
-            this.txtBase.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtBase.Location = new System.Drawing.Point(106, 38);
-            this.txtBase.Name = "txtBase";
-            this.txtBase.Size = new System.Drawing.Size(125, 23);
-            this.txtBase.TabIndex = 1;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // BaseEditionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(334, 148);
+            this.ClientSize = new System.Drawing.Size(334, 142);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnQuit);
             this.Controls.Add(this.gbxBaseEdition);
+            this.MaximizeBox = false;
             this.Name = "BaseEditionForm";
             this.Text = "基数修改页面";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.BaseEditionForm_Load);
             this.gbxBaseEdition.ResumeLayout(false);
             this.gbxBaseEdition.PerformLayout();
             this.ResumeLayout(false);
